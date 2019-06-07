@@ -29,7 +29,7 @@ Things you may want to cover:
 |name|string|null: false, index: true, unique: true|
  
 **Association**
- -has_many :groups, through :group_user
+ -has_many :groups, through :group_users
  -has_many :messages
  -has_many :group_users
   
@@ -53,7 +53,7 @@ Things you may want to cover:
 |groupname|string|null: false, unique: true|
 
 **Association**
--has_many :users, through :group_user
+-has_many :users, through :group_users
 -has_many :messages
 -has_many :group_users
 
