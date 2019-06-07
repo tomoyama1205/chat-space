@@ -29,9 +29,9 @@ Things you may want to cover:
 |name|string|null: false, index: true, unique: true|
  
 **Association**
- -has_many :groups, through :group_users
  -has_many :messages
  -has_many :group_users
+ -has_many :groups, through :group_users
   
 #massageテーブル
   
@@ -43,8 +43,8 @@ Things you may want to cover:
 |image|string|null: false|
 
 **Association**
--belong_to :user
--belong_to :group
+-belongs_to :user
+-belongs_to :group
 
 #groupsテーブル
 
@@ -53,9 +53,9 @@ Things you may want to cover:
 |groupname|string|null: false, unique: true|
 
 **Association**
--has_many :users, through :group_users
--has_many :messages
 -has_many :group_users
+-has_many :messages
+-has_many :users, through :group_users
 
 #group_usersテーブル
 
@@ -65,5 +65,5 @@ Things you may want to cover:
 |group|reference|null: false, foreign_key: true|
 
 **Association**
--belong_to :user
--belong_to :message
+-belongs_to :user
+-belongs_to :group
