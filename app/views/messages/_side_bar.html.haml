@@ -1,0 +1,27 @@
+.side-bar
+  .header
+    %h3.header__name
+      member1
+    %ul.header__lists
+      %li.list
+        = link_to do
+          = fa_icon 'edit', class: 'icon'
+      %li.list
+        = link_to do
+          = fa_icon 'cog', class: 'icon'
+  .groups
+    .group
+      .group__name
+        chat_groupA
+      .group__message
+        abc
+    .group
+      .group__name
+        chat_groupB
+      .group__message
+        abc
+    .group
+      .group__name
+        chat_groupC
+      .group__message
+        abc 
