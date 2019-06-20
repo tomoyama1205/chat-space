@@ -41,7 +41,7 @@ $(function () {
             contentType: false
         })
 
-            .done(function (data) {
+        .done(function (data) {
             var html = buildHTML(data);
             $('.messages').append(html);
             scroll_view()
@@ -53,4 +53,4 @@ $(function () {
             alert('error');
         });
     })
-});
+}); 
