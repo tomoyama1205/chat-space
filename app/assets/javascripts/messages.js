@@ -10,15 +10,16 @@ $(function () {
                 <div class="upper-message__user-name">
                   ${ message.name }
                 </div>
-              <div class="upper-message__date">
+                <div class="upper-message__date">
                 ${ message.date }
+                </div>
               </div>
-            </div>
-            <div class="lower-meesage">
-              <p class="lower-message__content">
-                ${ message.content }
-              </p>
-                ${ insertImage }
+              <div class="lower-meesage">
+                <p class="lower-message__content">
+                  ${ message.content }
+                </p>
+                  ${ insertImage }
+              </div>
             </div>`;
         return html;
     }
