@@ -9,7 +9,7 @@ $(function () {
                   ${ message.name }
                 </div>
                 <div class="upper-message__date">
-                ${ message.date }
+                  ${ message.date }
                 </div>
               </div>
               <div class="lower-meesage">
