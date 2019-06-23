@@ -6,15 +6,12 @@
     .header
       .left-header
         .left-header__title
-          chat_groupA
+          = @group.name
         %ul.left-header__members
           Member：
           %li.member
-            member1
-          %li.member
-            member2
-          %li.member
-            member3
+            - @group.group_users.each do |group_user|
+              = group_user.user.name
       .right-header
         .right-header__button
           Edit
