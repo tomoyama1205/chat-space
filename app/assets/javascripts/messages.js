@@ -1,25 +1,26 @@
-$(function () {
-    function buildHTML(message) {
         var insertImage = (message.image != null) ? `<img class ="lower-message__imag", src="${message.image}">` : "";
-
-        var html =
-            `<div class="message">
-              <div class="upper-message">
-                <div class="upper-message__user-name">
-                  ${ message.name }
-                </div>
-                <div class="upper-message__date">
-                  ${ message.date }
-                </div>
-              </div>
-              <div class="lower-meesage">
-                <p class="lower-message__content">
-                  ${ message.content }
-                </p>
-                  ${ insertImage }
-              </div>
-            </div>`;
-        return html;
+// $(document).on('turbolinks:load', function(){
+  $(function() {
+    function buildHTML(message){
+      var body = message.content ? `${ message.content }` : "";
+      var img = message.image ? `<img src= ${ message.image }>` : "";
+      var html = `<div class="message" data-id="${message.id}">
+                    <div class="upper-message">
+                      <div class="upper-message__user-name">
+                        ${message.name}
+                      </div>
+                      <div class="upper-message__date">
+                        ${message.date}
+                      </div>
+                    </div>
+                    <div class="lower-message">
+                      <p class="lower-message__content">
+                      ${body}
+                      </p>
+                      ${img}
+                    </div>
+                  </div>`
+      return html;
     }
     function scroll_view() {
       var position = $('.messages').get(0).scrollHeight;
