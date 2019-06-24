@@ -1,4 +1,3 @@
-        var insertImage = (message.image != null) ? `<img class ="lower-message__imag", src="${message.image}">` : "";
 // $(document).on('turbolinks:load', function(){
   $(function() {
     function buildHTML(message){
