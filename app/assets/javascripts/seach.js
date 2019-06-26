@@ -1,3 +1,4 @@
+// $(document).on('turbolinks:load', function(){
 $(function() {
 
     var search_list = $("#user-search-result");
@@ -19,10 +20,18 @@ $(function() {
   
     $('#user-search-field').on('keyup', function() {
       var input = $('#user-search-field').val();
+      var cntMembers = $('#chat-group-users').children().length;
+      var member_ids = [];
+      for (var i = 0; i < cntMembers; i++) {
+        var member_id = $('.chat-group-user input').eq(i).val();
+        member_ids.push(member_id);
+      }
       $.ajax({
         type: 'GET',
         url: '/users',
-        data: { keyword: input },
+        data: { keyword: input,
+          member_ids: member_ids
+        },
         dataType: 'json',
       })
   
@@ -42,16 +51,16 @@ $(function() {
       })
     });
     $(document).on('click', ".user-search-add", function(){
-        $("#chat-group-users").val();
-          var user_id = $(this).attr('data-user-id');
-          var user_name = $(this).attr('data-user-name');
-        $(this).parent().remove();
+      $('#chat-group-users').val();
+        var user_id = $(this).data('user-id');
+        var user_name = $(this).data('user-name');
         var html = `<div class='chat-group-user clearfix js-chat-member'  id='${user_id}'>
                       <input name='group[user_ids][]' type='hidden' value='${user_id}'>
                       <p class='chat-group-user__name'>${user_name}</p>
                       <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
                     </div>`
         $("#chat-group-users").append(html);
+      $(this).parent().remove();
     });
     
     $(document).on('click', ".user-search-remove", function(){
