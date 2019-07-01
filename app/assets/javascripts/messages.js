@@ -51,32 +51,32 @@
         })
       })
     
-    var reloadMessages = function() {
-      var last_message_id = $('.messages').children().last().data('id');
-      var reload_url = window.location.href
-      reload_url_pattern = '/messages';
-      api_url = reload_url.replace(reload_url_pattern, '/api/messages');
-      if (reload_url.match(/^(?=.*groups)(?=.*messages)/)) {
-        $.ajax({
-          url: api_url,
-          type: 'get',
-          dataType: 'json',
-          data: {id: last_message_id},
-        })
-        .done(function(messages) {
-          var insertHTML = '';
-          if (messages.length !== 0){
-            messages.forEach(function(message) {
-              insertHTML += buildHTML(message);
-              scroll_view();
-            });
-          }
-          $('.messages').append(insertHTML);
-        })
-        .fail(function() {
-          alert('自動更新に失敗しました');
-        });
-      }
-    };
-    setInterval(reloadMessages, 5000);
+    // var reloadMessages = function() {
+    //   var last_message_id = $('.messages').children().last().data('id');
+    //   var reload_url = window.location.href
+    //   reload_url_pattern = '/messages';
+    //   api_url = reload_url.replace(reload_url_pattern, '/api/messages');
+    //   if (reload_url.match(/^(?=.*groups)(?=.*messages)/)) {
+    //     $.ajax({
+    //       url: api_url,
+    //       type: 'get',
+    //       dataType: 'json',
+    //       data: {id: last_message_id},
+    //     })
+    //     .done(function(messages) {
+    //       var insertHTML = '';
+    //       if (messages.length !== 0){
+    //         messages.forEach(function(message) {
+    //           insertHTML += buildHTML(message);
+    //           scroll_view();
+    //         });
+    //       }
+    //       $('.messages').append(insertHTML);
+    //     })
+    //     .fail(function() {
+    //       alert('自動更新に失敗しました');
+    //     });
+    //   }
+    // };
+    // setInterval(reloadMessages, 5000);
 });
